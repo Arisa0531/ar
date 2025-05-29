@@ -2,20 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>WebAR con perrito 3D</title>
+    <title>WebAR Esfera Animada</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs="sourceType: webcam;">
+    <a-scene embedded arjs>
       <a-marker preset="hiro">
-        <a-entity
-          gltf-model="https://cdn.glitch.global/f77f89d3-8ac3-408a-a4a3-13dcbb5c58d1/puppy.glb?v=1700612385000"
-          scale="0.5 0.5 0.5"
-          position="0 0 0"
-          rotation="0 180 0"
-          animation-mixer>
-        </a-entity>
+        <a-sphere 
+          position="0 0.5 0" 
+          radius="0.3" 
+          color="#FF007F"
+          
+          animation__float="property: position; to: 0 0.7 0; dir: alternate; dur: 1000; loop: true"
+          animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear"
+          animation__color="property: material.color; from: #FF007F; to: #00FFD0; dur: 2000; dir: alternate; loop: true">
+        </a-sphere>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
